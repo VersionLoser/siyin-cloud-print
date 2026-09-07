@@ -4,7 +4,7 @@
 把本地文档上传到司印云打印系统的打印队列。
 
 设计目标：
-- 标准 MCP Server，可被 CodeBuddy / Claude Desktop 等 AI client 直接调用
+- 标准 MCP Server，可被任意支持 MCP 协议的 AI client 直接调用
 - 默认 stdio 传输：服务跑在用户本机，天然能访问内网司印服务器
 - 也支持 streamable-http / sse，供内网集中部署
 - 服务器地址、账号、solutionkey、打印机队列全部通过环境变量或工具参数传入，

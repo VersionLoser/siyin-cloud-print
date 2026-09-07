@@ -1,6 +1,6 @@
 # 司印云打印 MCP Server
 
-将本地文档上传到司印云打印系统打印队列的标准 MCP Server，供 CodeBuddy、Claude Desktop 等 AI client 调用。
+将本地文档上传到司印云打印系统打印队列的标准 MCP Server，供任意支持 MCP 协议的 AI 客户端调用。
 
 ## 特性
 
@@ -53,7 +53,7 @@ cp .env.example .env
 python server.py
 ```
 
-CodeBuddy / Claude Desktop / WorkBuddy 配置示例（只需 command + args，参数在 .env 里）：
+MCP 客户端配置示例（只需 command + args，参数在 .env 里）：
 
 ```json
 {
@@ -102,13 +102,13 @@ client 侧配置为 streamable-http 地址 `http://内网IP:9000/mcp`（SSE 则�
 
 探测司印服务器连通性，不上传文件。
 
-## 关于腾讯云 MCP 广场上架
+## 部署形态说明
 
-本服务默认面向**内网部署**（接口在 `192.168.x` 内网网段）。上架腾讯云开发者 MCP 广场时：
+本服务的接口位于客户内网（如 `192.168.x` 网段），因此：
 
-1. 上架申请仅面向**企业级** MCP 开发者，需填写官方入驻申请表；
-2. 广场默认「云托管」部署，但内网接口无法云托管，**请在申请/企微沟通时明确告知「仅支持本地/内网部署」**；
-3. 建议以 stdio 本地运行形态上架，附 README、使用教程、应用案例。
+- **不适合云端托管**——公网无法访问内网司印接口，请作为「本地 / 内网运行」型 MCP 使用；
+- 推荐 **stdio 本地运行**（服务跑在用户本机，天然可达内网）；
+- 也可在客户内网以 **streamable-http / sse** 集中部署，供内网多个 AI 客户端共用。
 
 ## 项目结构
 

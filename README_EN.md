@@ -6,7 +6,7 @@ An MCP (Model Context Protocol) server that brings the **Siyin Cloud Print Syste
 
 ## Features
 
-- Standard MCP server, callable from CodeBuddy, Claude Desktop, Cursor, WorkBuddy, and any MCP client
+- Standard MCP server, callable from any MCP-compatible AI client (Claude Desktop, Cursor, Cline, etc.)
 - Default **stdio** transport — runs on the user's machine, so it can reach the intranet print server
 - Also supports **streamable-http / SSE** for centralized intranet deployment
 - All connection parameters via environment variables or tool arguments; **no hard-coded intranet addresses**
